@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top Stories"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_top_stories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="News"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:layout_marginBottom="16dp"
+        app:spanCount="2"/> <!-- Ensure this is properly set up in your Java/Kotlin code as well -->
+
+    <!-- Conditionally include these FrameLayouts only if you need them for a specific UI state -->
+    <!-- Such as for tablets or dual-pane layouts -->
+    <FrameLayout
+        android:id="@+id/detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" /> <!-- Initially set to gone to prevent overlapping -->
+
+    <!-- This FrameLayout should be where your fragments are loaded -->
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

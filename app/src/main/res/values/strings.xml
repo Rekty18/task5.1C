@@ -1,0 +1,9 @@
+<resources>
+    <!-- Application name which is shown on the device home screen -->
+    <string name="app_name">NewsApp</string> <!-- Replace 'NewsApp' with the actual name of your app -->
+
+    <!-- Description for the news image used for accessibility purposes -->
+    <string name="news_image_desc">Description of the news image</string>
+
+    <!-- Add other string resources below as needed -->
+</resources>
