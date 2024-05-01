@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView newsRecyclerView;
     private TopStoriesAdapter topStoriesAdapter;
     private NewsAdapter newsAdapter;
-    private boolean isTwoPane = false;  // Adjust based on layout/device capabilities
+    private boolean isTwoPane = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +24,12 @@ public class MainActivity extends AppCompatActivity {
         topStoriesRecyclerView = findViewById(R.id.recycler_top_stories);
         newsRecyclerView = findViewById(R.id.recycler_news);
 
-        // Setup the RecyclerViews with their respective layout managers
         topStoriesRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         newsRecyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // 2 columns in grid
 
-        // Sample data
         ArrayList<NewsStory> topStories = createSampleTopStories();
         ArrayList<NewsStory> newsStories = createSampleNewsStories();
 
-        // Initialize adapters with sample data and set them to the RecyclerViews
         topStoriesAdapter = new TopStoriesAdapter(topStories);
         newsAdapter = new NewsAdapter(newsStories, this::onItemClick);
 
@@ -68,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onItemClick(NewsStory newsStory) {
-        Log.d("MainActivity", "Item Clicked: " + newsStory.getTitle()); // Confirm click is registered
+        Log.d("MainActivity", "Item Clicked: " + newsStory.getTitle());
 
         NewsDetailFragment detailFragment = NewsDetailFragment.newInstance(newsStory.getId());
         getSupportFragmentManager().beginTransaction()
